@@ -1,0 +1,56 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* Border Radii */
+  --border-radius-md: 8px;
+  --border-radius-sm: 4px;
+
+  /* Colors */
+  --color-midnight: #253648;
+  --color-gallery: #f7f7f8;
+  --color-cta: #0f81a3;
+  --color-cta-hover: #66aec5;
+  --color-green-pill-text: #15693b;
+  --color-green-pill-bg: #ddf9ea;
+  --color-orange-pill-text: #764c25;
+  --color-orange-pill-bg: #fdefe2;
+  --color-gray-pill-bg: #eeeff1;
+
+  /* Font Sizes */
+  --font-size-lg: 20px;
+  --font-size-md: 16px;
+  --font-size-sm: 14px;
+  --font-size-xs: 12px;
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-xl: 24px;
+  --spacing-lg: 16px;
+  --spacing-md: 10px;
+  --spacing-sm: 8px;
+  --spacing-xs: 4px;
+
+  /* Shadows */
+  --shadow-default: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.16);
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  background-color: #f6f6f7;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}

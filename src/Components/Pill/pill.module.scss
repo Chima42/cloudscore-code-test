@@ -1,0 +1,32 @@
+@import "./../../variables.module.scss";
+.pill {
+  text-transform: uppercase;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-gray-pill-bg);
+  display: inline-block;
+  width: max-content;
+}
+
+.onTrack {
+  background-color: var(--color-green-pill-bg);
+  color: var(--color-green-pill-text);
+}
+
+.offTrack {
+  background-color: var(--color-orange-pill-bg);
+  color: var(--color-orange-pill-text);
+}
+
+.impact {
+  text-align: center;
+  width: 100%;
+  word-spacing: 200px;
+}
+
+@media (min-width: $breakpoint-md) {
+  .impact {
+    word-spacing: 0;
+    width: auto;
+  }
+}

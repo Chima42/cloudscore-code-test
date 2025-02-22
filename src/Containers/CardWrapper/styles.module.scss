@@ -1,0 +1,17 @@
+@import "./../../variables.module.scss";
+.cardWrapper {
+  width: 100vw;
+}
+
+.innerWrapper {
+  display: flex;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-left: calc(var(--spacing-md) * -1);
+
+  @media (min-width: $breakpoint-lg) {
+    flex-wrap: wrap;
+  }
+}
