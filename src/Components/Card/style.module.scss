@@ -10,6 +10,22 @@
   flex-direction: column;
   gap: var(--spacing-md);
 
+  button {
+    color: var(--color-cta);
+    background: none;
+    border: none;
+    text-align: left;
+    margin: 0;
+    font-weight: bold;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  button:hover {
+    color: var(--color-cta-hover);
+    text-decoration: underline;
+  }
+
   @media (min-width: $breakpoint-md) {
     min-width: 47%;
   }
@@ -51,6 +67,16 @@
   margin: 0;
 }
 
+.card h3 {
+  font-weight: bold;
+  line-height: 20px;
+  color: var(--color-midnight);
+}
+
 .card p {
   margin-top: var(--spacing-sm);
+  font-weight: normal;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray);
+  line-height: 20px;
 }
