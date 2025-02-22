@@ -6,8 +6,6 @@ import Card from "../../Components/Card/Card";
 import Pill from "../../Components/Pill/Pill";
 import style from "./../../Components/Card/style.module.scss";
 import Drawer from "../../Components/Drawer/Drawer";
-import closeIcon from "/close.svg";
-import viteLogo from "/vite.svg";
 import DrawerDetailWrapper from "../../Components/Drawer/DrawerDetail";
 
 interface ICardInfo {
@@ -123,25 +121,24 @@ function Insights() {
 
   return (
     <>
-      <Drawer visible={modalOpen}>
+      <Drawer visible={modalOpen} closeModal={closeModal}>
         {cardInfoDetail && (
           <>
             <Pill type="track" onTrack={isSelectedCardOnTrack} />
-            <img src={viteLogo} onClick={closeModal} alt="" />
-            <h2>{cardInfoDetail.title}</h2>
-            <p>
-              {isSelectedCardOnTrack
-                ? cardInfoDetail.onTrackDescription
-                : cardInfoDetail.offTrackDescription}
-            </p>
             <DrawerDetailWrapper>
-              {cardInfoDetail.details.map((x) => (
-                <div className={style.details}>
-                  <p>{x.title}</p>
-                  <p>{x.description}</p>
-                </div>
-              ))}
+              <h2>{cardInfoDetail.title}</h2>
+              <p>
+                {isSelectedCardOnTrack
+                  ? cardInfoDetail.onTrackDescription
+                  : cardInfoDetail.offTrackDescription}
+              </p>
             </DrawerDetailWrapper>
+            {cardInfoDetail.details.map((x) => (
+              <DrawerDetailWrapper>
+                <h4>{x.title}</h4>
+                <p>{x.description}</p>
+              </DrawerDetailWrapper>
+            ))}
           </>
         )}
       </Drawer>
