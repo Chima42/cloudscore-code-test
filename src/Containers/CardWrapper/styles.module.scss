@@ -16,3 +16,16 @@
     flex-wrap: wrap;
   }
 }
+
+.pillWrapper {
+  display: flex;
+  gap: var(--spacing-md);
+  span:last-of-type {
+    display: none;
+  }
+  @media (min-width: vars.$breakpoint-lg) {
+    span:last-of-type {
+      display: inline-flex;
+    }
+  }
+}

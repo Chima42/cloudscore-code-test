@@ -6,12 +6,17 @@ describe("Card Component", () => {
   test("renders Card", () => {
     render(
       <Card>
-        <h3>a card</h3>
+        <div>
+          <h3>Card heading</h3>
+          <p>Card detail </p>
+        </div>
       </Card>
     );
 
     const heading = screen.getByRole("heading", { level: 3 });
+    const description = screen.getByRole("paragraph");
 
+    expect(description).toBeInTheDocument();
     expect(heading).toBeInTheDocument();
   });
 });
