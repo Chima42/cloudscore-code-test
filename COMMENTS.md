@@ -2,11 +2,6 @@
 
 Time taken: I took a little over 4hrs due to fiddling with Vite config
 
-## Commands
-
-- **Start:** `npm run dev`
-- **Test:** `npm run test`
-
 ## Highlights
 
 - Accessibility (aria-labels)
