@@ -1,4 +1,4 @@
-@import "./../../variables.module.scss";
+@use "./../../variables.module.scss" as vars;
 
 .drawer {
   background-color: #fff;
@@ -13,7 +13,7 @@
   z-index: 2;
   transition: all 0.35s ease-in-out;
   padding-top: calc(var(--spacing-xl) * 3);
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: vars.$breakpoint-md) {
     max-width: 30vw;
   }
 }

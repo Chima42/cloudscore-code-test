@@ -1,4 +1,4 @@
-import style from "./pill.module.scss";
+import style from "./style.module.scss";
 import { IPill } from "../../Interfaces/IPill";
 
 function Pill({ onTrack, label, type }: IPill) {
