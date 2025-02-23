@@ -4,25 +4,31 @@ import { PropsWithChildren } from "react";
 function Drawer({
   children,
   visible,
-  closeModal,
-}: PropsWithChildren<{ visible: boolean; closeModal: () => void }>) {
+  closeDrawer,
+}: PropsWithChildren<{ visible: boolean; closeDrawer: () => void }>) {
   return (
-    <aside>
-      <div
+    <>
+      <aside
         className={[style.drawer, visible ? style.show : style.hide].join(" ")}
       >
-        <p onClick={closeModal} className={style.close}>
-          close
-        </p>
-        {children}
-      </div>
+        <div className={style.drawerWrapper}>
+          <button
+            aria-label="Closes drawer"
+            onClick={closeDrawer}
+            className={style.close}
+          >
+            close
+          </button>
+          {children}
+        </div>
+      </aside>
       <div
         className={[
           style.background,
           visible ? style.visible : style.transparent,
         ].join(" ")}
       ></div>
-    </aside>
+    </>
   );
 }
 
