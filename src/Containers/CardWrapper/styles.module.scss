@@ -1,4 +1,5 @@
-@import "./../../variables.module.scss";
+@use "./../../variables.module.scss" as vars;
+
 .cardWrapper {
   width: 100vw;
 }
@@ -11,7 +12,7 @@
   overflow-x: auto;
   margin-left: calc(var(--spacing-md) * -1);
 
-  @media (min-width: $breakpoint-lg) {
+  @media (min-width: vars.$breakpoint-lg) {
     flex-wrap: wrap;
   }
 }

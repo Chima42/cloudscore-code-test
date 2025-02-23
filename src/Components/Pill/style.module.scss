@@ -1,4 +1,5 @@
-@import "./../../variables.module.scss";
+@use "./../../variables.module.scss" as vars;
+
 .pill {
   text-transform: uppercase;
   border-radius: var(--border-radius-sm);
@@ -9,6 +10,7 @@
   font-size: var(--font-size-xs);
   font-weight: normal;
   letter-spacing: 0.4px;
+  margin-top: 10px;
 }
 
 .onTrack {
@@ -27,7 +29,7 @@
   word-spacing: 200px;
 }
 
-@media (min-width: $breakpoint-md) {
+@media (min-width: vars.$breakpoint-md) {
   .impact {
     word-spacing: 0;
     width: auto;

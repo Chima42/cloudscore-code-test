@@ -1,4 +1,4 @@
-@import "./../../variables.module.scss";
+@use "./../../variables.module.scss" as vars;
 
 .card {
   background-color: #fff;
@@ -26,11 +26,11 @@
     text-decoration: underline;
   }
 
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: vars.$breakpoint-md) {
     min-width: 47%;
   }
 
-  @media (min-width: $breakpoint-lg) {
+  @media (min-width: vars.$breakpoint-lg) {
     flex: 1 1 calc(50% - 14px);
     max-width: 400px;
     span:last-of-type {
@@ -38,7 +38,7 @@
     }
   }
 
-  @media (min-width: $breakpoint-xl) {
+  @media (min-width: vars.$breakpoint-xl) {
     width: auto;
     min-width: auto;
   }
@@ -50,7 +50,7 @@
   span:last-of-type {
     display: none;
   }
-  @media (min-width: $breakpoint-lg) {
+  @media (min-width: vars.$breakpoint-lg) {
     span:last-of-type {
       display: inline-flex;
     }
