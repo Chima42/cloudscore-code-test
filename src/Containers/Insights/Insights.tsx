@@ -28,12 +28,15 @@ interface ICardInfoDetail {
   offTrackDescription: string;
   details: Detail[];
 }
+interface ICardInfoDetailUI extends ICardInfoDetail {
+  id: number;
+  isOnTrack: boolean;
+}
 
 function Insights() {
   const [cardInfo, setCardInfo] = useState<ICardInfo[]>([]);
-  const [cardInfoDetail, setCardInfoDetail] = useState<ICardInfoDetail>();
-  const [modalOpen, setModalOpen] = useState(false);
-  const [isSelectedCardOnTrack, setSelectedCardOnTrack] = useState(false);
+  const [cardInfoDetail, setCardInfoDetail] = useState<ICardInfoDetailUI>();
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -88,6 +91,7 @@ function Insights() {
           })
         );
       } catch (e) {
+        // log to Sentry or something similar
         console.log(e);
       }
     }
@@ -95,24 +99,36 @@ function Insights() {
     loadData();
   }, []);
 
-  function closeModal() {
-    setModalOpen(false);
+  function closeDrawer() {
+    setDrawerOpen(false);
   }
 
-  async function openModal(id: number) {
-    setSelectedCardOnTrack(cardInfo.find((x) => x.id === id)?.onTrack || false);
-    setModalOpen(true);
-    await loadDetail();
+  async function openDrawer(id: number) {
+    if (cardInfoDetail?.id === id) {
+      setDrawerOpen(true);
+      return;
+    }
+    const isOnTrack = cardInfo.find((x) => x.id === id)?.onTrack || false;
+    setDrawerOpen(true);
+    await loadDetail({ id, isOnTrack });
   }
 
-  async function loadDetail() {
+  async function loadDetail({
+    id,
+    isOnTrack,
+  }: {
+    id: number;
+    isOnTrack: boolean;
+  }) {
     try {
       const response = await fetch(
         "https://api.jsonbin.io/v3/b/6128c389c5159b35ae04d4ed/1?meta=false"
       );
       const detail: ICardInfoDetail = await response.json();
-      setCardInfoDetail(detail);
+      const detailWithCardId: ICardInfoDetailUI = { ...detail, id, isOnTrack };
+      setCardInfoDetail(detailWithCardId);
     } catch (e) {
+      // log to Sentry or something similar
       console.log(e);
     }
   }
@@ -120,23 +136,23 @@ function Insights() {
   if (cardInfo.length === 0) return "Loading...";
 
   return (
-    <>
-      <Drawer visible={modalOpen} closeModal={closeModal}>
+    <section>
+      <Drawer visible={drawerOpen} closeDrawer={closeDrawer}>
         {cardInfoDetail && (
           <>
-            <Pill type="track" onTrack={isSelectedCardOnTrack} />
+            <Pill type="track" onTrack={cardInfoDetail.isOnTrack} />
             <DrawerDetailWrapper>
               <h2>{cardInfoDetail.title}</h2>
               <p>
-                {isSelectedCardOnTrack
+                {cardInfoDetail.isOnTrack
                   ? cardInfoDetail.onTrackDescription
                   : cardInfoDetail.offTrackDescription}
               </p>
             </DrawerDetailWrapper>
-            {cardInfoDetail.details.map((x) => (
-              <DrawerDetailWrapper>
-                <h4>{x.title}</h4>
-                <p>{x.description}</p>
+            {cardInfoDetail.details.map(({ title, description }) => (
+              <DrawerDetailWrapper key={title}>
+                <h4>{title}</h4>
+                <p>{description}</p>
               </DrawerDetailWrapper>
             ))}
           </>
@@ -156,14 +172,14 @@ function Insights() {
                 <p>{description}</p>
               </div>
               {buttonLabel && (
-                <button onClick={() => openModal(id)}>{buttonLabel}</button>
+                <button onClick={() => openDrawer(id)}>{buttonLabel}</button>
               )}
               <Pill label={impact} type="impact" />
             </Card>
           )
         )}
       </CardWrapper>
-    </>
+    </section>
   );
 }
 
