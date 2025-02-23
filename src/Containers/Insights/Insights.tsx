@@ -172,7 +172,12 @@ function Insights() {
                 <p>{description}</p>
               </div>
               {buttonLabel && (
-                <button onClick={() => openDrawer(id)}>{buttonLabel}</button>
+                <button
+                  aria-label="Opens drawer with more detail about this card"
+                  onClick={() => openDrawer(id)}
+                >
+                  {buttonLabel}
+                </button>
               )}
               <Pill label={impact} type="impact" />
             </Card>
