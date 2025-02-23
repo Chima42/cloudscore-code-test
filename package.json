@@ -1,5 +1,5 @@
 {
-  "name": "code-test",
+  "name": "chima-code-test",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
     "test": "vitest"
   },
   "dependencies": {
@@ -33,6 +32,6 @@
   },
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
   "main": "eslint.config.js",
-  "author": "",
+  "author": "Chima Nwosu",
   "license": "ISC"
 }
