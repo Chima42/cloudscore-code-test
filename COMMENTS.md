@@ -12,7 +12,8 @@ Time taken: I took a little over 4hrs due to fiddling with Vite config
 
 - I would've loved to mock one of the endpoints and/or test if clicking the close button toggles the class to show/hide the drawer
 - Creating some sort of loading screen if the detail api call takes long or errors instead of just showing blank
-- Adding a click handler to the drawer background to also close the drawer for added usability 
+- Adding a click handler to the drawer background to also close the drawer for added usability
+- Have another look at the Drawer regarding accessibility
 
 ## Other Notes
 
