@@ -1,8 +1,8 @@
-import style from "./style.module.scss";
+import style from "./styles.module.scss";
 import { PropsWithChildren } from "react";
 
 function Card({ children }: PropsWithChildren) {
-  return <div className={style.card}>{children}</div>;
+  return <article className={style.card}>{children}</article>;
 }
 
 export default Card;

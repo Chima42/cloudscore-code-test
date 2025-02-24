@@ -1,4 +1,4 @@
-import style from "./style.module.scss";
+import style from "./styles.module.scss";
 import { PropsWithChildren } from "react";
 
 function Drawer({

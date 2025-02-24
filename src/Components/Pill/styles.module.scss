@@ -1,13 +1,13 @@
-@use "./../../variables.module.scss" as vars;
+@use "./../../variables.scss" as vars;
 
 .pill {
   text-transform: uppercase;
   border-radius: var(--border-radius-sm);
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-sm);
   background-color: var(--color-gray-pill-bg);
   display: inline-block;
   width: max-content;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: normal;
   letter-spacing: 0.4px;
   margin-top: 10px;
@@ -27,9 +27,16 @@
   text-align: center;
   width: 100%;
   word-spacing: 200px;
+  color: var(--color-midnight);
 }
 
 @media (min-width: vars.$breakpoint-md) {
+  .impact {
+    word-spacing: 0;
+  }
+}
+
+@media (min-width: vars.$breakpoint-lg) {
   .impact {
     word-spacing: 0;
     width: auto;

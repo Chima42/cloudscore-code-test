@@ -1,4 +1,4 @@
-import style from "./style.module.scss";
+import style from "./styles.module.scss";
 
 function Header({ label }: { label: string }) {
   return <h1 className={style.heading}>{label}</h1>;

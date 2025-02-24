@@ -15,10 +15,10 @@ function CardWrapper({ cards, handleOpenDrawer }: ICardWrapper) {
         {cards.map(
           ({ heading, impact, description, onTrack, buttonLabel, id }) => (
             <Card key={heading.replace(" ", "-")}>
-              <div className={style.pillWrapper}>
+              <header className={style.pillWrapper}>
                 <Pill type="track" onTrack={onTrack} />
                 <Pill label={impact} type="impact" />
-              </div>
+              </header>
               <div className={style.content}>
                 <h3>{heading}</h3>
                 <p>{description}</p>
@@ -31,7 +31,9 @@ function CardWrapper({ cards, handleOpenDrawer }: ICardWrapper) {
                   {buttonLabel}
                 </button>
               )}
-              <Pill label={impact} type="impact" />
+              <footer>
+                <Pill label={impact} type="impact" />
+              </footer>
             </Card>
           )
         )}
